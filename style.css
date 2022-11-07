@@ -1,0 +1,84 @@
+
+body{
+    margin: 0;
+    padding:0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: white;
+    flex-direction: column;
+    font-size: 40px;
+    background-image: url("rasse.jpeg");
+    
+    background-size: 33%;
+    color: white;
+}
+
+#game{
+    width: 600px;
+    height: 300px;
+    background-color: pink;
+    border: 0.3vw solid black;
+   
+    
+}
+
+#dino{
+    width: 50px;
+    height: 100px;
+    
+    position: relative;
+    top: 200px;
+    left: 25px;
+    
+}
+
+.jumping{
+    animation: jump 0.65s ;
+}
+
+#block{
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    position: relative;
+    top: 150px;
+    left: 550px;
+   
+}
+
+@keyframes block{
+    from{left: 550px;}
+    to{left: 0px;}
+}
+
+@keyframes jump{
+    0%{top: 200px;}
+    30%{top: 90px;}
+    70%{top: 90px;}
+    100%{top: 200px;}
+}
+
+#score{
+    font-size: 50px;
+}
+
+img{
+    width: 50px;
+    height: 100px;
+}
+
+#imageid{
+    width: 50px;
+    height: 50px;
+}
+
+/* #bg{
+    position: absolute;
+    width: 600px;
+    height: 300px;
+    opacity: 0.2;
+    z-index: -1;
+} */
