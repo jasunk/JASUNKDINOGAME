@@ -3,6 +3,7 @@ let block = document.getElementById("block")
 let speed = 2
 let score = 0
 let hasGottenScore = false
+let playing = true
 
 function jump(){
     if (dino.classList != "jumping"){
@@ -25,6 +26,7 @@ function check(){
     if (dinoTop>=150 && blockLeft<=75 && dinoLeft>=25) {
         block.style.display= "none"
         block.style.animation = "none"
+        playing=false
         document.body.innerHTML = "DU TAPTE BRODER, SCORE:  " + score
     }else if(blockLeft<=75 && dinoLeft>=25 && !hasGottenScore){
         score +=1
@@ -50,3 +52,13 @@ function allowScore(){
             document.getElementById("imageid").src="imran.png";
         }
 }
+
+document.addEventListener('keydown', function(event) {
+    if(event.keyCode == 32) {
+        if (playing){
+            jump()
+        }else{
+            window.location.reload()
+        }
+        
+    }});
