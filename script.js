@@ -1,6 +1,7 @@
 let dino = document.getElementById("dino")
 let block = document.getElementById("block")
 let speed = 2
+
 let score = 0
 let hasGottenScore = false
 let playing = true
@@ -17,8 +18,9 @@ function jumpstop(){
 }
 
 setInterval(check,10)
-
+let localHighscore = localStorage.getItem("hs")
 function check(){
+    
     let dinoTop = parseInt(window.getComputedStyle(dino).getPropertyValue("top"))
     let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"))
     let dinoLeft = parseInt(window.getComputedStyle(dino).getPropertyValue("left"))
@@ -27,7 +29,14 @@ function check(){
         block.style.display= "none"
         block.style.animation = "none"
         playing=false
-        document.body.innerHTML = "DU TAPTE BRODER, SCORE:  " + score
+        if(score>localHighscore){
+            localStorage.setItem("hs",score)
+            localHighscore=localStorage.getItem("hs")
+        }
+
+
+
+        document.body.innerHTML = "DU TAPTE BRODER, SCORE:  " + score + "<br> DIN PERSONLIGE HIGHSCORE: "+localHighscore
     }else if(blockLeft<=75 && dinoLeft>=25 && !hasGottenScore){
         score +=1
         hasGottenScore=true
